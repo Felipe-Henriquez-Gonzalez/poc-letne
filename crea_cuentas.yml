@@ -1,0 +1,12 @@
+---
+- name: Crear cuentas de usuario en RHEL
+  hosts: "{{ servers }}"
+  become: yes  
+
+  
+  tasks:
+    - name: Crear cuentas de usuario
+      user:
+        name: "{{ nombre }}"
+        password: "{{ password }}"  
+        state: present 
