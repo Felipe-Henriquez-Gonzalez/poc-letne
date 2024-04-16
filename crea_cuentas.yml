@@ -8,5 +8,5 @@
     - name: Crear cuentas de usuario
       user:
         name: "{{ nombre }}"
-        password: "{{ password }}"  
+        password: "{{ password | password_hash('sha512') }}"  
         state: present 
