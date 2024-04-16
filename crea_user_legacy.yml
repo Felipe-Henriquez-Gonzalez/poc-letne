@@ -1,0 +1,15 @@
+---
+- name: Crear cuentas de usuario en Linux
+  hosts: "{{ servers }}"
+  become: yes
+
+  tasks:
+    - name: Crear usuario
+      user:
+        name: "{{ nombre}}"
+        password: "{{ password }}"
+        state: present
+        shell: /bin/bash
+        createhome: yes
+      vars:
+        ansible_python_interpreter: auto_legacy
