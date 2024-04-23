@@ -7,12 +7,12 @@
   tasks:
    - name: Generar una contraseña aleatoria
       set_fact:
-        random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') | password_hash('sha512') }}"
+        random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') }}"
     
     - name: Crear cuentas de usuario
       user:
         name: "{{ nombre }}"
-        password: "{{ random_pasword | password_hash('sha512') }}"  
+        password: "{{ random_password | password_hash('sha512') }}"  
         state: present 
      - name: Mostrar en pantalla contraseña
        debug:
