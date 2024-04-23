@@ -11,6 +11,6 @@
         name: "{{ nombre }}"
         password: "{{ random_password | password_hash('sha512') }}"  
         state: present 
-     - name: Mostrar en pantalla contraseña
-       debug:
-         msg: la contraseña creada para "{{ nombre }}" es "{{ random_password }}"
+    - name: Mostrar en pantalla contraseña
+        debug:
+          msg: la contraseña creada para "{{ nombre }}" es "{{ random_password }}"
