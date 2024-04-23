@@ -2,13 +2,10 @@
 - name: Crear cuentas de usuario en RHEL
   hosts: "{{ servers }}"
   become: yes  
-
+  vars: 
+    random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') }}"
   
-  tasks:
-   - name: Generar una contraseña aleatoria
-      set_fact:
-        random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') }}"
-    
+  tasks:    
     - name: Crear cuentas de usuario
       user:
         name: "{{ nombre }}"
