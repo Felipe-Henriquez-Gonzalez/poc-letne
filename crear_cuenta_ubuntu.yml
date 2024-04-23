@@ -1,23 +1,15 @@
 ---
 - name: Crear cuenta de usuario en Ubuntu
-  hosts: tu_servidor
+  hosts: "{{ server }}"
   become: yes
 
   tasks:
-    - name: Crear el directorio home del usuario
-      file:
-        path: "/home/{{ username }}"
-        state: directory
-        owner: "{{ username }}"
-        group: "{{ username }}"
-        mode: '0755'
-
     - name: Agregar el usuario
       user:
         name: "{{ username }}"
         shell: /bin/bash
         home: "/home/{{ username }}"
-        password: "{{ password | password_hash('sha512') }}"  # Recuerda cambiar 'password' por la contraseña deseada
+        password: "{{ password | password_hash('sha512') }}"  
         state: present
 
    
