@@ -13,4 +13,4 @@
         state: present 
     - name: Mostrar en pantalla contraseña
       debug:
-        msg: la contraseña creada para el usuario "{{ nombre.content }}" es "{{ random_password.content }}"
+        msg: la contraseña creada para el usuario "{{ nombre }}" es "{{ random_password }}"
