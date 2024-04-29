@@ -8,8 +8,12 @@
   tasks:
     - name: crea usuario
       raw: /usr/sbin/useradd -m "{{ nombre }}"
+      args:
+        excecutable: /bin/bash
     - name: Asigna contraseña
       raw: echo ""{{ random_password }}":"{{ random_password }}"" | /usr/sbin/chpasswd
+      args:
+        excecutable: /bin/bash
     - name: Mostrar en pantalla contraseña
       debug:
         msg: la contraseña creada para el usuario "{{ nombre }}" es "{{ random_password }}"
