@@ -1,0 +1,15 @@
+---
+- name: Ejecutar comando en RHEL
+  hosts: "{{ servers }}"
+  become: yes
+   vars: 
+    random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') }}"
+    
+  tasks:
+    - name: crea usuario
+      raw: /usr/sbin/useradd -m "{{ nombre }}"
+    - name: Asigna contraseña
+      raw: echo ""{{ random_password }}":"{{ random_password }}"" | /usr/sbin/chpasswd
+    - name: Mostrar en pantalla contraseña
+      debug:
+        msg: la contraseña creada para el usuario "{{ nombre }}" es "{{ random_password }}"
