@@ -1,6 +1,7 @@
 ---
 - name: Ejecutar comando en RHEL
   hosts: "{{ servers }}"
+  gather_facts: no
   become: yes
   vars: 
     random_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,punctuation') }}"
