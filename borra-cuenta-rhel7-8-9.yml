@@ -8,3 +8,6 @@
         name: "{{ usuario }}"
         state: absent
         remove: yes
+    - name: muestra resultado
+      debug:
+        msg: "se ha eliminado correctamente el usuario "{{ usuario }}" "
