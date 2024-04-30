@@ -11,6 +11,8 @@
         name: "{{ nombre }}"
         password: "{{ random_password | password_hash('sha512') }}"  
         state: present 
+        update_password: always
+        password_expire_max: 30
     - name: Mostrar en pantalla contraseña
       debug:
         msg: la contraseña creada para el usuario "{{ nombre }}" es "{{ random_password }}"
