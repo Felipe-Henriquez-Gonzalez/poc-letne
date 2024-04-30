@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Listar cuentas de usuario
-      shell: "cut -d: -f1 /etc/passwd"
+      shell: ""wk -F: '$3 >= 1000 {print $1}' /etc/passwd"
       register: cuentas_de_usuario
 
     - name: Mostrar resultado
