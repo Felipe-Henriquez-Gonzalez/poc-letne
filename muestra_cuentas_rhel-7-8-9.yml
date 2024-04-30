@@ -1,0 +1,12 @@
+---
+- name: Listar cuentas de usuario en RHEL
+  hosts: "{{ servers }}"
+  gather_facts: no
+  tasks:
+    - name: Listar cuentas de usuario
+      shell: "cut -d: -f1 /etc/passwd"
+      register: cuentas_de_usuario
+
+    - name: Mostrar resultado
+      debug:
+        msg: "{{ cuentas_de_usuario.stdout_lines }}"
