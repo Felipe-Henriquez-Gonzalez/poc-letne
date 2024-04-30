@@ -17,4 +17,4 @@
  #       excecutable: /bin/bash
     - name: Mostrar en pantalla contraseña
       debug:
-        msg: la contraseña creada para el usuario "{{ nombre }}" es "{{ random_password }}"
+        msg: la contraseña creada para el usuario "{{ nombre.stdout }}" es "{{ random_password.stdout }}"
