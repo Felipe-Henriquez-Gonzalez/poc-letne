@@ -1,6 +1,7 @@
 ---
 - name: eliminar cuenta de usuario en RHEL
   hosts: "{{ server }}"
+  become: yes
   tasks:
     - name: eliminar cuenta de usuario
       user:
