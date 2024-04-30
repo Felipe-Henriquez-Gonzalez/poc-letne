@@ -10,4 +10,4 @@
         remove: yes
     - name: muestra resultado
       debug:
-        msg: Se ha eliminado correctamente el usuario "{{ usuario.stdout_lines }}" 
+        msg: Se ha eliminado correctamente el usuario "{{ usuario }}" 
