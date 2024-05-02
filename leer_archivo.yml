@@ -1,6 +1,6 @@
 ---
 - name: Leer archivo en RHEL
-  hosts: grp_rhel_9
+  hosts: autmplataformas
   tasks:
     - name: Leer el contenido del archivo
       ansible.builtin.slurp:
