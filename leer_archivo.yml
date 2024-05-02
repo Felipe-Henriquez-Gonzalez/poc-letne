@@ -1,4 +1,5 @@
- name: Leer archivo en RHEL
+---
+- name: Leer archivo en RHEL
   hosts: grp_rhel_9
   tasks:
     - name: Leer el contenido del archivo
