@@ -1,4 +1,4 @@
---
+---
 - name: Validar instalación de httpd en servidores RHEL 9
   hosts: "{{ servers }}"
   become: true
