@@ -1,0 +1,13 @@
+--
+- name: Validar instalación de httpd en servidores RHEL 9
+  hosts: "{{ servers }}"
+  become: true
+  tasks:
+    - name: Verificar si httpd está instalado
+      package_facts:
+        manager: auto
+      register: package_facts_result
+
+    - name: Mostrar estado de la instalación de httpd
+      debug:
+        msg: "httpd {{ 'está' if package_facts_result.packages['httpd'] is defined else 'no está' }} instalado en el servidor."
