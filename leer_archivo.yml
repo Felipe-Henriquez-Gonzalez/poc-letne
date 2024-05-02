@@ -1,0 +1,15 @@
+ name: Leer archivo en RHEL
+  hosts: tu_servidor_RHEL
+  tasks:
+    - name: Leer el contenido del archivo
+      ansible.builtin.slurp:
+        path: /home/poc_ansible/ansible.txt
+      register: contenido_archivo
+
+    - name: Mostrar el contenido del archivo
+      ansible.builtin.debug:
+        msg:  {{ contenido_archivo.content }}
+    - name: pasar al workflow
+      ansible.builtin.set_stats:
+        data: 
+          csr_data: "{{ contenido_archivo.content }}"
