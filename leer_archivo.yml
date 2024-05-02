@@ -13,4 +13,4 @@
     - name: pasar al workflow
       ansible.builtin.set_stats:
         data: 
-          csr_data: "{{ contenido_archivo.content }}"
+          contenido_archivo_data: "{{ contenido_archivo.content }}"
