@@ -5,7 +5,7 @@
     server_origen: "{{ origen }}"
     server_destino: "{{ destino }}"
   tasks:
-    - name: leer archivo desde origen a destino
+    - name: leer archivo desde server_origen a server_destino
       fetch:
         src: /home/poc_ansible/ansible.txt
         dest: buffer/
@@ -13,7 +13,7 @@
       run_once: yes
       when: inventory_hostname == server_origen
 
-    - name: Copy the file from master to 
+    - name: copiar el archivo desde server_origen a server_destino 
       copy:
         src: buffer/ansible.txt
         dest: /home/poc_ansible/ansible.txt
