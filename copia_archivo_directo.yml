@@ -1,6 +1,9 @@
 ---
 - name: copia archivo directamente
   hosts: grp_rhel_9
+  vars:
+    server_origen: "{{ origen }}"
+    server_destino: "{{ destino }}"
   tasks:
     - name: leer archivo desde origen a destino
       fetch:
@@ -8,10 +11,10 @@
         dest: buffer/
         flat: yes
       run_once: yes
-      when: inventory_hostname == "{{ origen }}"
+      when: inventory_hostname == server_origen
 
     - name: Copy the file from master to 
       copy:
         src: buffer/ansible.txt
         dest: /home/poc_ansible/ansible.txt
-      when: inventory_hostname == "{{ destino }}"
+      when: inventory_hostname == server_destino
