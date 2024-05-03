@@ -3,8 +3,7 @@
   hosts: autmplataformas
   tasks:
     - name: Leer el contenido del archivo
-      ansible.builtin.slurp:
-        path: /home/poc_ansible/ansible.txt
+      shell: cat /home/poc_ansible/ansible.txt
       register: contenido_archivo
 
     - name: Mostrar el contenido del archivo
@@ -14,4 +13,4 @@
     - name: pasar al workflow
       ansible.builtin.set_stats:
         data: 
-          contenido_archivo_data: "{{ contenido_archivo.content | b64decode }}"
+          contenido_archivo_data: "{{ contenido_archivo.content }}"
