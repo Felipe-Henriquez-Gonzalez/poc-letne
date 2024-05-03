@@ -10,7 +10,7 @@
     - name: obtiene el contenido del archvio
       copy:
         content: "{{ contenido_archivo_data }}"
-        dest: /home/poc_ansible/archivo_copiado_ok.txt
+        dest: /home/poc_ansible/ansible.txt
     - name: lista directorio 
       command: ls /home/poc_ansible
       register: lista_directorio
