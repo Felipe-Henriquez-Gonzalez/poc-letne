@@ -10,6 +10,7 @@
         src: /home/poc_ansible/ansible.txt
         dest: buffer/
         flat: yes
+        remote_src: true
       run_once: yes
       when: inventory_hostname == server_origen
 
