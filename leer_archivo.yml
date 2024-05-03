@@ -3,7 +3,7 @@
   hosts: autmplataformas
   tasks:
     - name: Leer el contenido del archivo
-      shell: cat /home/poc_ansible/ansible.txt
+      command: cat /home/poc_ansible/ansible.txt
       register: contenido_archivo
 
     - name: Mostrar el contenido del archivo
