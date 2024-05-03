@@ -9,7 +9,7 @@
     ansible.posix.synchronize:
       src: /home/poc_ansible/ansible.txt
       dest: /home/poc_ansible/
-    delegate_to: server_destino
+    delegate_to: "{{ destino }}"
   
 #    - name: leer archivo desde server_origen a server_destino
 #      fetch:
