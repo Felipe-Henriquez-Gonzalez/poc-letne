@@ -17,4 +17,5 @@
       copy:
         src: buffer/ansible.txt
         dest: /home/poc_ansible/ansible.txt
+        remote_src: true
       when: inventory_hostname == server_destino
