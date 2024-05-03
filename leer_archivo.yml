@@ -8,7 +8,7 @@
 
     - name: Mostrar el contenido del archivo
       ansible.builtin.debug:
-        msg: "{{ contenido_archivo.content }}"
+        msg: "{{ contenido_archivo }}"
 
     - name: pasar al workflow
       ansible.builtin.set_stats:
