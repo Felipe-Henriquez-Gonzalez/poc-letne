@@ -13,3 +13,8 @@
         dest: /home/poc_ansible/archivo_copiado_ok.txt
     - name: lista directorio 
       command: ls /home/poc_ansible
+      register: "{{ lista_directorio}}"
+
+    - name: muestra contenido directorio
+      debug:
+        msg: "{{ lista_directorio.stdout }}"
