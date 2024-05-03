@@ -1,22 +1,28 @@
 ---
 - name: copia archivo directamente
-  hosts: grp_rhel_9
+  hosts: "{{ origen }}"
   vars:
     server_origen: "{{ origen }}"
     server_destino: "{{ destino }}"
   tasks:
-    - name: leer archivo desde server_origen a server_destino
-      fetch:
-        src: /home/poc_ansible/ansible.txt
-        dest: buffer/
-        flat: yes
-        remote_src: true
-      run_once: yes
-      when: inventory_hostname == server_origen
+  - name:  Synchronization using rsync protocol on delegate host (push)
+    ansible.posix.synchronize:
+      src: /home/poc_ansible/ansible.txt
+      dest: /home/poc_ansible/
+    delegate_to: server_destino
+  
+#    - name: leer archivo desde server_origen a server_destino
+#      fetch:
+#        src: /home/poc_ansible/ansible.txt
+#        dest: buffer/
+#        flat: yes
+#        remote_src: true
+#      run_once: yes
+#      when: inventory_hostname == server_origen
 
-    - name: copiar el archivo desde server_origen a server_destino 
-      copy:
-        src: buffer/ansible.txt
-        dest: /home/poc_ansible/ansible.txt
-        remote_src: true
-      when: inventory_hostname == server_destino
+#    - name: copiar el archivo desde server_origen a server_destino 
+#      copy:
+#        src: buffer/ansible.txt
+#        dest: /home/poc_ansible/ansible.txt
+#        remote_src: true
+#      when: inventory_hostname == server_destino
