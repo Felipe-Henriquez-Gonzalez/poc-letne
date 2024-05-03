@@ -1,13 +1,13 @@
 ---
 - name: cargar certificado
-  hosts: "{{ server }}"
+  hosts: ipamserv
   gather_facts: false
 
   tasks:
-    - name: mostrar certificado
+    - name: mostrar archivo
       ansible.builtin.debug:
-        msg: "{{ cert_data }}"
-    - name: Render out the certificate file somewhere
+        msg: "{{ contenido_archivo_data }}"
+    - name: obtiene el contenido del archvio
       copy:
-        content: "{{ cert_data }}"
-        dest: /opt/server_certificates/certificate.cer
+        content: "{{ contenido_archivo_data }}"
+        dest: /home/poc_ansible/archivo_copiado_ok.txt
