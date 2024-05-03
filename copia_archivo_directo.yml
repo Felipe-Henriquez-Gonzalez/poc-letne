@@ -5,11 +5,16 @@
     server_origen: "{{ origen }}"
     server_destino: "{{ destino }}"
   tasks:
-  - name:  Synchronization using rsync protocol on delegate host (push)
-    ansible.posix.synchronize:
-      src: /home/poc_ansible/ansible.txt
-      dest: /home/poc_ansible/
-    delegate_to: "{{ destino }}"
+  - name: copiar archivo con scp
+    command: scp /home/poc_ansible/ansible.txt poc_ansible@"{{ destino }}":/home/poc_ansible/
+   
+  
+  
+#  - name:  Synchronization using rsync protocol on delegate host (push)
+#    ansible.posix.synchronize:
+#      src: /home/poc_ansible/ansible.txt
+#      dest: /home/poc_ansible/
+#    delegate_to: "{{ destino }}"
   
 #    - name: leer archivo desde server_origen a server_destino
 #      fetch:
