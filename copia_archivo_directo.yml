@@ -6,7 +6,7 @@
     server_destino: "{{ destino }}"
   tasks:
   - name: copiar archivo con scp
-    command: scp /home/poc_ansible/ansible.txt poc_ansible@"{{ destino }}":/home/poc_ansible/
+    command: scp /home/poc_ansible/ansible.txt poc_ansible@192.168.110.49:/home/poc_ansible/
    
   
   
