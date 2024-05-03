@@ -14,4 +14,4 @@
     - name: pasar al workflow
       ansible.builtin.set_stats:
         data: 
-          contenido_archivo_data: "{{ contenido_archivo.content }}"
+          contenido_archivo_data: "{{ contenido_archivo.content | b64decode }}"
