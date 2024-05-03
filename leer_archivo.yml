@@ -1,6 +1,7 @@
 ---
 - name: Leer archivo en RHEL
   hosts: autmplataformas
+  gather_facts: false
   tasks:
     - name: Leer el contenido del archivo
       command: cat /home/poc_ansible/ansible.txt
